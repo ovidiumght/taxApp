@@ -16,7 +16,7 @@ class XmlCountryRepositoryTest extends \PHPUnit_Framework_TestCase
     public function setUp()
     {
         parent::setUp();
-        $this->xmlCountryRepository = new XmlCountryRepository(__DIR__ . '/../../testData/tax.xml');
+        $this->xmlCountryRepository = new XmlCountryRepository(__DIR__ . '/../../../testData/tax.xml');
         $this->country = $this->xmlCountryRepository->getCountry();
     }
 
