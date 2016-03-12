@@ -36,7 +36,7 @@ class Country
         $totalTaxCollected = 0;
 
         foreach($this->states as $state) {
-            $totalTaxCollected += $state->getTotalTaxCollected();
+            $totalTaxCollected += $state->calculateTotalTaxCollected();
         }
 
         $averageTaxCollectedPerState = $totalTaxCollected/count($this->states);
@@ -51,7 +51,7 @@ class Country
         $totalTaxRate = 0;
 
         foreach($this->states as $state) {
-            $totalTaxRate += $state->getAverageTaxRate()->getTaxRate();
+            $totalTaxRate += $state->calculateAverageTaxRate()->getTaxRate();
         }
 
         $averageCountryTaxRate = new TaxRate($totalTaxRate/count($this->states));
@@ -64,7 +64,7 @@ class Country
         $taxesCollected = 0;
 
         foreach($this->states as $state) {
-            $taxesCollected = $state->getTotalTaxCollected();
+            $taxesCollected += $state->calculateTotalTaxCollected();
         }
 
         return $taxesCollected;

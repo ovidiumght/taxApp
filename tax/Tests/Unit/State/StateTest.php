@@ -11,8 +11,8 @@ class StateTest extends \PHPUnit_Framework_TestCase
 {
     const STATE_NAME = 'somestate';
     const TOTAL_TAX_COLLECTED = 5000;
-
     const AVERAGE_TAX = 15;
+    const AVERAGE_TAX_COLLECTED = 2500;
 
     /** @var  State */
     private $state;
@@ -42,13 +42,18 @@ class StateTest extends \PHPUnit_Framework_TestCase
         $this->assertSame($this->counties, $this->state->getCounties());
     }
 
-    public function testItCalculatesTheTotalTaxCorrected()
+    public function testItCalculatesTheTotalTax()
     {
-        $this->assertSame(self::TOTAL_TAX_COLLECTED, $this->state->getTotalTaxCollected());
+        $this->assertSame(self::TOTAL_TAX_COLLECTED, $this->state->calculateTotalTaxCollected());
     }
 
     public function testItCalculatesTheAverageTax()
     {
-        $this->assertEquals(self::AVERAGE_TAX, $this->state->getAverageTaxRate()->getTaxRate());
+        $this->assertEquals(self::AVERAGE_TAX, $this->state->calculateAverageTaxRate()->getTaxRate());
+    }
+
+    public function testItCalculatesTheAverageTaxCollected()
+    {
+        $this->assertEquals(self::AVERAGE_TAX_COLLECTED, $this->state->calculateAverageTaxCollected());
     }
 }

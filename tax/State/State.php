@@ -23,12 +23,13 @@ class State
         return $this->name;
     }
 
+
     public function addCounty(County $county)
     {
         $this->counties[] = $county;
     }
 
-    public function getTotalTaxCollected()
+    public function calculateTotalTaxCollected()
     {
         $totalTaxCollected = 0;
 
@@ -42,7 +43,7 @@ class State
     /**
      * @return TaxRate
      */
-    public function getAverageTaxRate()
+    public function calculateAverageTaxRate()
     {
         $totalTaxRate = 0;
 

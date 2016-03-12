@@ -23,7 +23,7 @@ class TaxService
         $country = $this->countryRepository->getCountry();
 
         foreach($country->getStates() as $state) {
-            $response[$state->getName()] = $state->getTotalTaxCollected();
+            $response[$state->getName()] = $state->calculateTotalTaxCollected();
         }
 
         return $response;
@@ -42,6 +42,9 @@ class TaxService
         return $response;
     }
 
+    /**
+     * @return TaxRate[]
+     */
     public function calculateAverageCountyTaxRatePerState()
     {
         $response = [];
@@ -49,7 +52,7 @@ class TaxService
         $country = $this->countryRepository->getCountry();
 
         foreach($country->getStates() as $state) {
-            $response[$state->getName()] = $state->getAverageTaxRate();
+            $response[$state->getName()] = $state->calculateAverageTaxRate();
         }
 
         return $response;

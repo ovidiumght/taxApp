@@ -12,12 +12,19 @@ class Helpers
 {
     const COUNTRY_NAME = 'Romania';
     const AVERAGE_TAX_RATE_PER_STATE = 8000;
+    const AVERAGE_COUNTRY_TAX_RATE = 40;
+    const TOTAL_TAXES_COLLECTED = 16000;
 
     public static $states;
 
     public static $taxCollectedPerState = [
         'Timis' => 10000,
         'Arad'  => 6000
+    ];
+
+    public static $averageTaxCollectedPerState = [
+        'Timis' => 5000,
+        'Arad' => 3000
     ];
 
     public static function createCountry()

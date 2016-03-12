@@ -4,10 +4,7 @@ namespace tax\Tests\Unit\Country;
 
 
 use Tax\Country\Country;
-use Tax\County\County;
-use Tax\State\State;
 use Tax\Tests\Unit\Helpers;
-use Tax\Vo\TaxRate;
 
 class CountryTest extends \PHPUnit_Framework_TestCase
 {
@@ -35,4 +32,13 @@ class CountryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Helpers::AVERAGE_TAX_RATE_PER_STATE, $this->country->calculateAverageAmountOfTaxesPerState());
     }
 
+    public function testItCalculatesAverageTaxRate()
+    {
+        $this->assertEquals(Helpers::AVERAGE_COUNTRY_TAX_RATE, $this->country->calculateAverageTaxRate()->getTaxRate());
+    }
+
+    public function testItCalculatesAllTaxesCollected()
+    {
+        $this->assertEquals(Helpers::TOTAL_TAXES_COLLECTED, $this->country->calculateAllTaxesCollected());
+    }
 }
