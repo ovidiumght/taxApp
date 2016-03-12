@@ -3,13 +3,17 @@
 namespace Tax;
 
 
+use Tax\Country\Country;
 use Tax\Country\Repository\CountryRepository;
 use Tax\Vo\TaxRate;
 
 class TaxService
 {
     /** @var CountryRepository */
-    protected $countryRepository;
+    private $countryRepository;
+
+    /** @var bool | Country */
+    private $country = false;
 
     public function __construct(CountryRepository $countryRepository)
     {
@@ -18,9 +22,9 @@ class TaxService
 
     public function calculateOverallTaxCollectedPerState()
     {
-        $response = [];
+        $country = $this->getCountry();
 
-        $country = $this->countryRepository->getCountry();
+        $response = [];
 
         foreach($country->getStates() as $state) {
             $response[$state->getName()] = $state->calculateTotalTaxCollected();
@@ -31,9 +35,9 @@ class TaxService
 
     public function calculateAverageTaxCollectedPerState()
     {
-        $response = [];
+        $country = $this->getCountry();
 
-        $country = $this->countryRepository->getCountry();
+        $response = [];
 
         foreach($country->getStates() as $state) {
             $response[$state->getName()] = $state->calculateAverageTaxCollected();
@@ -47,9 +51,9 @@ class TaxService
      */
     public function calculateAverageCountyTaxRatePerState()
     {
-        $response = [];
+        $country = $this->getCountry();
 
-        $country = $this->countryRepository->getCountry();
+        $response = [];
 
         foreach($country->getStates() as $state) {
             $response[$state->getName()] = $state->calculateAverageTaxRate();
@@ -58,17 +62,28 @@ class TaxService
         return $response;
     }
 
+    /**
+     * @return TaxRate
+     */
     public function calculateAverageTaxRate()
     {
-        $country = $this->countryRepository->getCountry();
-
+        $country = $this->getCountry();
         return $country->calculateAverageTaxRate();
     }
 
     public function calculateAllTaxesCollected()
     {
-        $country = $this->countryRepository->getCountry();
-
+        $country = $this->getCountry();
         return $country->calculateAllTaxesCollected();
+    }
+
+    private function getCountry()
+    {
+        // Doing this because it's just one country and it makes no sense to read it each time
+        if(!$this->country) {
+            $this->country = $this->countryRepository->getCountry();
+        }
+
+        return $this->country;
     }
 }
