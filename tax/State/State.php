@@ -55,6 +55,19 @@ class State
         return $averageTaxRate;
     }
 
+    public function calculateAverageTaxCollected()
+    {
+        $taxCollected = 0;
+
+        foreach($this->counties as $county) {
+            $taxCollected += $county->getTaxCollected();
+        }
+
+        $averageTaxCollected = $taxCollected/count($this->counties);
+
+        return $averageTaxCollected;
+    }
+
     public function getCounties()
     {
         return $this->counties;

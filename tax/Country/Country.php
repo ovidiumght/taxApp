@@ -46,9 +46,28 @@ class Country
     /**
      * @return TaxRate
      */
-    public function calculateTaxRate()
+    public function calculateAverageTaxRate()
     {
+        $totalTaxRate = 0;
 
+        foreach($this->states as $state) {
+            $totalTaxRate += $state->getAverageTaxRate()->getTaxRate();
+        }
+
+        $averageCountryTaxRate = new TaxRate($totalTaxRate/count($this->states));
+
+        return $averageCountryTaxRate;
+    }
+
+    public function calculateAllTaxesCollected()
+    {
+        $taxesCollected = 0;
+
+        foreach($this->states as $state) {
+            $taxesCollected = $state->getTotalTaxCollected();
+        }
+
+        return $taxesCollected;
     }
 
     public function getName()

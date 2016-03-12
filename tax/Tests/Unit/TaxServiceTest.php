@@ -23,7 +23,7 @@ class TaxServiceTest extends \PHPUnit_Framework_TestCase
     public function testItCalculatesTaxCollectedPerState()
     {
         $this->countryRepositoryShouldReturnCountry();
-        $this->assertEquals(Helpers::$taxCollectedPerState, $this->taxService->calculateTaxCollectedPerState());
+        $this->assertEquals(Helpers::$taxCollectedPerState, $this->taxService->calculateOverallTaxCollectedPerState());
     }
 
     private function countryRepositoryShouldReturnCountry()

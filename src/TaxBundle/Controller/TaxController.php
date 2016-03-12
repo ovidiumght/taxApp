@@ -13,6 +13,12 @@ class TaxController extends Controller
         /** @var TaxService $taxService */
         $taxService = $this->get('tax.tax_service');
 
-        return new Response('Nothing here yet');
+        return $this->render('TaxBundle:Tax:tax.html.php',[
+            'overAllTaxCollectedPerState' => $taxService->calculateOverallTaxCollectedPerState(),
+            'averageTaxCollectedPerState' => $taxService->calculateAverageTaxCollectedPerState(),
+            'averageCountyTaxRatePerState' => $taxService->calculateAverageCountyTaxRatePerState(),
+            'averageCountryTaxRate' => $taxService->calculateAverageTaxRate(),
+            'allTaxesCollected' => $taxService->calculateAllTaxesCollected()
+        ]);
     }
 }
