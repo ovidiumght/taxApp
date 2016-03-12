@@ -1,0 +1,73 @@
+<?xml version='1.0' standalone='yes'?>
+<country name="USA">
+    <state name="Florida">
+        <county name="county1">
+            <taxPercent>10</taxPercent>
+            <taxAmount>123123</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>14</taxPercent>
+            <taxAmount>23423</taxAmount>
+        </county>
+        <county name="county3">
+            <taxPercent>23</taxPercent>
+            <taxAmount>435345</taxAmount>
+        </county>
+        <county name="county4">
+            <taxPercent>10</taxPercent>
+            <taxAmount>345345</taxAmount>
+        </county>
+    </state>
+    <state name="Kansas">
+        <county name="county1">
+            <taxPercent>23</taxPercent>
+            <taxAmount>10000</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>25</taxPercent>
+            <taxAmount>324234</taxAmount>
+        </county>
+        <county name="county3">
+            <taxPercent>11</taxPercent>
+            <taxAmount>89798</taxAmount>
+        </county>
+    </state>
+    <state name="New York">
+        <county name="county1">
+            <taxPercent>12</taxPercent>
+            <taxAmount>893489</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>11</taxPercent>
+            <taxAmount>18392738</taxAmount>
+        </county>
+    </state>
+    <state name="New Mexico">
+        <county name="county1">
+            <taxPercent>13</taxPercent>
+            <taxAmount>382398</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>14</taxPercent>
+            <taxAmount>29832938</taxAmount>
+        </county>
+        <county name="county3">
+            <taxPercent>17</taxPercent>
+            <taxAmount>8493848</taxAmount>
+        </county>
+    </state>
+    <state name="Texas">
+        <county name="county1">
+            <taxPercent>8</taxPercent>
+            <taxAmount>98232938</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>7</taxPercent>
+            <taxAmount>98494829</taxAmount>
+        </county>
+        <county name="county3">
+            <taxPercent>2</taxPercent>
+            <taxAmount>3453453</taxAmount>
+        </county>
+    </state>
+</country>

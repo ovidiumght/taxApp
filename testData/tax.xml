@@ -1,0 +1,19 @@
+<?xml version='1.0' standalone='yes'?>
+<country name="USA">
+    <state name="Florida">
+        <county name="county1">
+            <taxPercent>10</taxPercent>
+            <taxAmount>123123</taxAmount>
+        </county>
+        <county name="county2">
+            <taxPercent>12</taxPercent>
+            <taxAmount>1123</taxAmount>
+        </county>
+    </state>
+    <state name="Kansas">
+        <county name="county1">
+            <taxPercent>23</taxPercent>
+            <taxAmount>10000</taxAmount>
+        </county>
+    </state>
+</country>

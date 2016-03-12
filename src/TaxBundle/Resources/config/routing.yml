@@ -1,0 +1,3 @@
+tax_homepage:
+    path:     /tax
+    defaults: { _controller: TaxBundle:Default:index }

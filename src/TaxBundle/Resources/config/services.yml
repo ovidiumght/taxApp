@@ -1,0 +1,8 @@
+services:
+    tax.tax_country_repository:
+        class: Tax\Country\Repository\XmlCountryRepository
+        arguments: ['../../data/tax.xml']
+
+    tax.tax_service:
+        class: Tax\TaxService
+        arguments: ["@tax.tax_country_repository"]
