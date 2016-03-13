@@ -23,7 +23,6 @@ class State
         return $this->name;
     }
 
-
     public function addCounty(County $county)
     {
         $this->counties[] = $county;
