@@ -37,8 +37,8 @@ class CountryTest extends \PHPUnit_Framework_TestCase
         $this->assertEquals(Helpers::AVERAGE_COUNTRY_TAX_RATE, $this->country->calculateAverageTaxRate()->getTaxRate());
     }
 
-    public function testItCalculatesAllTaxesCollected()
+    public function testItCalculatesTotalTaxCollected()
     {
-        $this->assertEquals(Helpers::TOTAL_TAXES_COLLECTED, $this->country->calculateAllTaxesCollected());
+        $this->assertEquals(Helpers::TOTAL_TAXES_COLLECTED, $this->country->calculateTotalTaxCollected());
     }
 }

@@ -74,7 +74,7 @@ class TaxService
     public function calculateAllTaxesCollected()
     {
         $country = $this->getCountry();
-        return $country->calculateAllTaxesCollected();
+        return $country->calculateTotalTaxCollected();
     }
 
     private function getCountry()

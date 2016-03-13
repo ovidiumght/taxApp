@@ -43,6 +43,18 @@ class Country
 
         return $averageTaxCollectedPerState;
     }
+
+    public function calculateTotalTaxCollected()
+    {
+        $taxesCollected = 0;
+
+        foreach($this->states as $state) {
+            $taxesCollected += $state->calculateTotalTaxCollected();
+        }
+
+        return $taxesCollected;
+    }
+
     /**
      * @return TaxRate
      */
@@ -57,17 +69,6 @@ class Country
         $averageCountryTaxRate = new TaxRate($totalTaxRate/count($this->states));
 
         return $averageCountryTaxRate;
-    }
-
-    public function calculateAllTaxesCollected()
-    {
-        $taxesCollected = 0;
-
-        foreach($this->states as $state) {
-            $taxesCollected += $state->calculateTotalTaxCollected();
-        }
-
-        return $taxesCollected;
     }
 
     public function getName()
