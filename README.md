@@ -3,7 +3,7 @@ Tax Application [![Build Status](https://travis-ci.org/ovidiumght/taxApp.svg?bra
 
 ###
 Proof of concept in separating business logic from the presentation layer (MVC framework) and persistance layer (Database, Flat Files etc.).
-For now the data is read from an XML file. This can be easily changed by creating another country repository (a class that will implement the `CountryRepository` interface.
+For now the data is read from an XML file. This can be easily changed by creating another country repository (a class that will implement the `CountryRepository` interface).
 
 ### Folder Structure
  - All business logic with it's tests is separated in the `tax` folder
